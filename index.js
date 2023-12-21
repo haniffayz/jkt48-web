@@ -222,23 +222,3 @@ Data.forEach((item) => {
     description.appendChild(akunIg)
 
 })
-
-
-// About
-
-const aboutData = [
-    {
-        aboutId: 1,
-        aboutText: `JKT48 merupakan grup saudari asal Indonesia dari idol group ternama jepang AKB48. Tahun ke tahun, JKT48 Operational Team (JOT) yang merupakan pihak menejemen JKT48 selalu mengadakan audisi untuk menyeleksi member baru yang akan.JKT48 telah mengadakan audisi ke-11nya pada tahun lalu sejak pertama dibentuk pada tanggal 17 Desember 2011. Setelah membuka pendaftaran selama satu bulan penuh dari tanggal 22 Agustus-22 September 2022, JKT48 akhirnya mengungumkan deretan anggota baru pada acara perayaan Halloween berjudul “JKT48 Halloween Live Event” di Teater JKT48 Sudirman. Terdapat 14 perempuan yang diumumkan sebagai anggota trainee JKT48. Namun per 2 April 2023 silam, JOT mengungumkan pengunduran diri trainee Aulia Asyira dari JKT48 generasi 11.  `,
-    },
-]
-
-
-const aboutComponent = document.querySelector('.about-container')
-
-aboutData.forEach((item)=> {
-    const information = document.createElement('h1')
-    information.classList.add('h1')
-    information.innerHTML = item.aboutText
-    aboutComponent.appendChild(information)
-})
