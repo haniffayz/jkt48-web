@@ -15,6 +15,15 @@ document.querySelector('#menu-icon').onclick = () => {
     search.classList.remove('active')
 }
 
+
+// menonaktifkan klik kanan pada komponen Img
+document.addEventListener(
+ "contextmenu", (e)=> {
+     e.preventDefault()
+  },
+    false
+)
+
 const Data = [
     {
         id: 1,
@@ -24,6 +33,7 @@ const Data = [
         golDarah: `A`,
         tanggalLahir: `26 Agustus 2006`,
         tinggiBadan: '168',
+        akunIg: `@jkt48.alya_`,
     },
     {
         id: 2,
@@ -33,6 +43,7 @@ const Data = [
         golDarah: `O`,
         tanggalLahir: `22 April 2009`,
         tinggiBadan: '160',
+        akunIg: `@jkt48.michie_`,
     },
     {
         id: 3,
@@ -42,6 +53,7 @@ const Data = [
         golDarah: `O`,
         tanggalLahir: `18 Oktober 2005`,
         tinggiBadan: '154',
+        akunIg: `@jkt48.anindya_`,
     },
     {
         id: 4,
@@ -51,6 +63,7 @@ const Data = [
         golDarah: `O`,
         tanggalLahir: `9 April 2007`,
         tinggiBadan: '163',
+        akunIg: `@jkt48.elin_`,
     },
     {
         id: 5,
@@ -60,6 +73,7 @@ const Data = [
         golDarah: `O`,
         tanggalLahir: `16 Desember 2005`,
         tinggiBadan: '162',
+        akunIg: `@jkt48.danella`,
     },
     {
         id: 6,
@@ -69,6 +83,7 @@ const Data = [
         golDarah: `O`,
         tanggalLahir: `10 Januari 2006`,
         tinggiBadan: '165',
+        akunIg: `@jkt48.greesel`,
     },
     {
         id: 7,
@@ -78,6 +93,7 @@ const Data = [
         golDarah: `A`,
         tanggalLahir: `28 Mei 2009`,
         tinggiBadan: '158',
+        akunIg: `@jkt48.cathy`,
     },
     {
         id: 8,
@@ -87,6 +103,7 @@ const Data = [
         golDarah: `O`,
         tanggalLahir: `5 Juni 2006`,
         tinggiBadan: '164',
+        akunIg: `@jkt48.jeane`,
     },
     {
         id: 9,
@@ -96,6 +113,7 @@ const Data = [
         golDarah: `B`,
         tanggalLahir: `18 Oktober 2007`,
         tinggiBadan: '165',
+        akunIg: `@jkt48.gracie`,
     },
     {
         id: 10,
@@ -105,6 +123,7 @@ const Data = [
         golDarah: `O`,
         tanggalLahir: `16 Desember 2005`,
         tinggiBadan: '165',
+        akunIg: `@jkt48.daisy`,
     },
     {
         id: 11,
@@ -114,6 +133,7 @@ const Data = [
         golDarah: `B`,
         tanggalLahir: `23 Juni 2010`,
         tinggiBadan: '160',
+        akunIg: `@jkt48.gendis`,
     },
     {
         id: 12,
@@ -123,6 +143,7 @@ const Data = [
         golDarah: `O`,
         tanggalLahir: `22 November 2003`,
         tinggiBadan: '158',
+        akunIg: `@jkt48.chythia`,
     },
     {
         id: 13,
@@ -132,6 +153,7 @@ const Data = [
         golDarah: `B`,
         tanggalLahir: `23 Desember 2009`,
         tinggiBadan: '168',
+        akunIg: `@jkt48.chelsea`,
     },
 ]
 
@@ -140,6 +162,7 @@ function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
+      console.log(j)
     }
   }
 
@@ -151,19 +174,23 @@ Member.classList.add('member')
 
 Data.forEach((item) => {
 
+    // Container
     const container = document.createElement('div')
     container.classList.add('container')
     Member.appendChild(container)
 
+    // Img
     const Img = document.createElement('img')
     Img.src= item.img
     Img.classList.add('img')
     container.appendChild(Img)
 
+    // Description
     const description = document.createElement('div')
     container.appendChild(description)
     description.classList.add('description')
 
+    // h1
     const nama = document.createElement('h1') 
     nama.classList.add('h1')
     nama.innerHTML = `Nama: ${item.nama}`
@@ -191,7 +218,27 @@ Data.forEach((item) => {
 
     const akunIg = document.createElement('h1')
     akunIg.classList.add('h1')
-    akunIg.innerHTML = `Akun Instagram: ${item.akunIg}`
+    akunIg.innerHTML = `Instagram: ${item.akunIg}`
     description.appendChild(akunIg)
 
+})
+
+
+// About
+
+const aboutData = [
+    {
+        aboutId: 1,
+        aboutText: `JKT48 merupakan grup saudari asal Indonesia dari idol group ternama jepang AKB48. Tahun ke tahun, JKT48 Operational Team (JOT) yang merupakan pihak menejemen JKT48 selalu mengadakan audisi untuk menyeleksi member baru yang akan.JKT48 telah mengadakan audisi ke-11nya pada tahun lalu sejak pertama dibentuk pada tanggal 17 Desember 2011. Setelah membuka pendaftaran selama satu bulan penuh dari tanggal 22 Agustus-22 September 2022, JKT48 akhirnya mengungumkan deretan anggota baru pada acara perayaan Halloween berjudul “JKT48 Halloween Live Event” di Teater JKT48 Sudirman. Terdapat 14 perempuan yang diumumkan sebagai anggota trainee JKT48. Namun per 2 April 2023 silam, JOT mengungumkan pengunduran diri trainee Aulia Asyira dari JKT48 generasi 11.  `,
+    },
+]
+
+
+const aboutComponent = document.querySelector('.about-container')
+
+aboutData.forEach((item)=> {
+    const information = document.createElement('h1')
+    information.classList.add('h1')
+    information.innerHTML = item.aboutText
+    aboutComponent.appendChild(information)
 })
